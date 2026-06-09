@@ -1,0 +1,281 @@
+/* Animations */
+/* =========================
+   ANIMATION KEYFRAMES
+========================= */
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Down */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Left */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade In Right */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Smooth Floating Pattern */
+@keyframes floatPattern {
+  0% {
+    transform: translateY(0px);
+  }
+
+  25% {
+    transform: translateY(-20px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s ease forwards;
+}
+
+.fadeInDown {
+  animation: fadeInDown 1s ease forwards;
+}
+
+.fadeInLeft {
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.fadeInRight {
+  animation: fadeInRight 1s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.5s;
+}
+
+.delay-3 {
+  animation-delay: 0.8s;
+}
+
+.delay-4 {
+  animation-delay: 1s;
+}
+
+.fadeInUp,
+.fadeInDown,
+.fadeInLeft,
+.fadeInRight {
+  opacity: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ece7e2;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Index */
+
+/* NAVBAR */
+
+.navbar {
+  padding: 25px 0;
+}
+
+.logo {
+  font-size: 42px;
+}
+
+.brand {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 42px;
+  margin-left: 10px;
+}
+
+.nav-link {
+  color: #333;
+  margin: 0 12px;
+  font-size: 17px;
+}
+
+.book-btn {
+  border: 1px solid #333;
+  padding: 12px 32px;
+  border-radius: 40px;
+  text-decoration: none;
+  color: #333;
+  transition: 0.3s;
+}
+
+.book-btn:hover {
+  background: #333;
+  color: white;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-text small {
+  font-size: 20px;
+  display: block;
+  margin-bottom: 25px;
+}
+
+.hero-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 78px;
+  line-height: 1;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.hero-text p {
+  max-width: 560px;
+  line-height: 1.8;
+  font-size: 20px;
+  color: #444;
+}
+
+.start-btn {
+  display: inline-block;
+  margin-top: 40px;
+  border: 1px solid #222;
+  padding: 18px 45px;
+  border-radius: 50px;
+  color: #222;
+  text-decoration: none;
+}
+
+/* IMAGE SIDE */
+
+.hero-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.circle-bg {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  z-index: 0;
+}
+
+.hero-image img {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  width: 650px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+  .hero {
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  .hero-title {
+    font-size: 58px;
+  }
+
+  .hero-image {
+    margin-top: 50px;
+  }
+
+  .circle-bg {
+    width: 400px;
+    height: 400px;
+  }
+  .navbar-nav{
+    align-items: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  .brand {
+    font-size: 32px;
+  }
+
+  .circle-bg {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* Index */

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananda Shankar Jayant</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        /* =========================
+   about SECTION
+========================= */
+
+        .about-section {
+            min-height: calc(100vh - 90px);
+            display: flex;
+            align-items: flex-start;
+            gap: 60px;
+            position: relative;
+            flex-direction: row;
+            margin-bottom: 3rem;
+        }
+
+        /* =========================
+   LEFT
+========================= */
+
+        .about-left {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            width: 433px;
+            height: 470px;
+        }
+
+        .left-bg {
+            position: absolute;
+            width: 340px;
+            height: 440px;
+            background: #ddd5cb;
+            border-radius: 180px 180px 0 0;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .dots {
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            top: 0;
+            left: 50%;
+
+            background-image: radial-gradient(#d9cfc5 2px, transparent 2px);
+            background-size: 18px 18px;
+            border-radius: 50%;
+
+            animation: dotsRotate 30s linear infinite,
+                dotsFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes dotsRotate {
+            from {
+                transform: translateX(-50%) rotate(0deg);
+            }
+
+            to {
+                transform: translateX(-50%) rotate(360deg);
+            }
+        }
+
+        @keyframes dotsFloat {
+
+            0%,
+            100% {
+                margin-top: 0;
+            }
+
+            50% {
+                margin-top: -15px;
+            }
+        }
+
+        .about-left img {
+            position: relative;
+            width: 520px;
+            max-width: 100%;
+            z-index: 2;
+        }
+
+        /* =========================
+   CENTER CONTENT
+========================= */
+
+        .about-content {
+            flex: 1;
+            max-width: 520px;
+        }
+
+        .about-content h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            line-height: 1.05;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .about-content p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            line-height: 2;
+            color: #555;
+            margin-bottom: 0px;
+        }
+
+        .schedule-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+
+            width: 280px;
+            padding: 18px 35px;
+            margin-top: 3rem;
+            border: 1px solid #c1a78c;
+            border-radius: 60px;
+
+            text-decoration: none;
+            color: #222;
+
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 4px;
+            font-size: 14px;
+
+            transition: .3s;
+        }
+
+        .schedule-btn:hover {
+            background: #d1b99b;
+            color: #fff;
+        }
+
+        .stats {
+            margin-top: 0px;
+            display: flex;
+            gap: 120px;
+        }
+
+        .stats h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 70px;
+            color: #222;
+            margin-bottom: 5px;
+        }
+
+        .stats span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            color: #444;
+        }
+
+        /* =========================
+   RIGHT
+========================= */
+
+        .about-right {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle-image {
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .circle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .renew-card {
+            position: absolute;
+            top: 100%;
+            transform: translateY(0%);
+            width: -webkit-fill-available;
+            height: min-content;
+            background: #ccb393;
+            border-radius: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .renew-card h3 {
+            color: white;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .leaf {
+            font-size: 40px;
+        }
+
+        .sun-icon {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            font-size: 80px;
+            animation: dotsRotate 5s linear infinite,
+                dotsFloat 0s ease-in-out infinite;
+
+            color: #c9ae8d;
+        }
+
+        /* =========================
+   RESPONSIVE
+========================= */
+
+        @media(max-width:1200px) {
+
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-content {
+                max-width: 100%;
+            }
+
+            .stats {
+                justify-content: center;
+            }
+
+            .circle-image {
+                width: 500px;
+                height: 500px;
+            }
+
+            .renew-card {
+                left: -20px;
+            }
+        }
+
+        @media(max-width:768px) {
+
+            .about-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .stats {
+                gap: 40px;
+            }
+
+            .stats h2 {
+                font-size: 50px;
+            }
+
+            .circle-image {
+                width: 340px;
+                height: 340px;
+            }
+
+            .renew-card {
+                width: 100%;
+                height: 120px;
+                left: 0;
+            }
+
+            .renew-card h3 {
+                font-size: 22px;
+            }
+
+            .about-left img {
+                width: 350px;
+            }
+
+            .left-bg {
+                width: 240px;
+                height: 240px;
+            }
+
+            .about-left {
+                width: -webkit-fill-available;
+            }
+        }
+
+        /* pedagogy */
+
+        .pedagogy {
+            min-height: calc(100vh - 90px);
+
+            border-top: 2px solid #c1a78c;
+        }
+
+        .pedagogy-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+
+        .pedagogy-card {
+            background: rgba(255, 255, 255, 0.08);
+
+            backdrop-filter: blur(8px);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            transition: 0.4s ease;
+
+            cursor: pointer;
+        }
+
+        .pedagogy-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pedagogy-card img {
+            width: 100%;
+
+            height: 350px;
+
+            object-fit: cover;
+
+            transition: 0.4s ease;
+        }
+
+        .pedagogy-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .pedagogy-card-content {
+            padding: 25px;
+        }
+
+        .heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            line-height: 1.05;
+            color: #222;
+            margin: 3rem;
+            text-align: center;
+        }
+
+        .pedagogy-card-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            line-height: 1.05;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .pedagogy-card-content p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            line-height: 2;
+            color: #555;
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+
+        @media (max-width: 768px) {
+            .pedagogy-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .pedagogy-card img {
+                height: 260px;
+            }
+
+            .pedagogy {
+                margin: 0px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="/assets/mudras/mudra6.png" class="logo" alt="">
+                <span class="brand">Ananda</span>
+            </a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+                ☰
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="menu">
+
+                <ul class="navbar-nav">
+
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="productions.html">Productions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="training.html">Training</a></li>
+                    <li class="nav-item"><a class="nav-link" href="media.html">Media</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <a href="#" class="book-btn d-none d-lg-block">
+                Admissions →
+            </a>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="about-section">
+
+            <!-- LEFT IMAGE -->
+            <div class="about-left">
+                <div class="dots"></div>
+                <img src="/assets/hero11.png" alt="">
+                <div class="left-bg"></div>
+            </div>
+
+            <!-- CENTER CONTENT -->
+            <div class="about-content">
+
+                <h1>
+                    Ananda Shankar <br>
+                    Jayant
+
+                </h1>
+
+                <p>
+                    Dr Ananda Shankar Jayant, is celebrated as one of India’s leading classical dancers, choreographers
+                    and dance scholars.
+                    <br>
+                    Performing in the two classical styles of Bharatanatyam and Kuchipudi, Ananda, imbues to the
+                    technique and grammar of her dance, a sparkling quality that bristles with life.
+
+                </p>
+
+
+
+                <div class="stats">
+
+                    <div>
+                        <h2>10+</h2>
+                        <span>Awards</span>
+                    </div>
+
+                    <div>
+                        <h2>10K+</h2>
+                        <span>Students</span>
+                    </div>
+
+                </div>
+
+                <a href="#" class="schedule-btn">
+                    Latest Productions
+                    <span>→</span>
+                </a>
+
+            </div>
+
+            <!-- RIGHT IMAGE -->
+            <div class="about-right">
+
+                <div class="sun-icon">
+                    ☼
+                </div>
+
+                <div class="circle-image">
+                    <img src="/assets/kuchipudi.png" alt="">
+                </div>
+
+                <div class="renew-card">
+                    <div class="leaf">❋</div>
+                    <h3>
+                        Bharatanatyam <br>
+                        & <br>
+                        Kuchipudi
+                    </h3>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="pedagogy">
+            <h2 class="text-blk heading">Pedagogy</h2>
+
+            <div class="pedagogy-cards">
+
+                <div class="pedagogy-card">
+                    <img src="/assets/kuchipudi.png" alt="Kuchipudi">
+
+                    <div class="pedagogy-card-content">
+                        <h3 class="highlight">Kuchipudi</h3>
+
+                        <p class="text-blk subHeading">
+                            Guru Sri Pasumarthy Ramalinga Shastry
+                        </p>
+                        <p class="text-blk subHeading">
+                            Kuchipudi ,one of the seven classical dance styles of India , takes its name from the
+                            village of
+                            its origin, Kuchipudi, in the southern state of Andhra Pradesh.
+                        </p>
+                        <p class="text-blk subHeading">
+                            Kuchipudi as a style is known for its verve and vivacity .Movements are rounded and
+                            fleet-footed, performed with grace and fluidity.</p>
+                        <p class="text-blk subHeading">
+                            Performed to South Indian classical music; Kuchipudi shares many common elements with
+                            Bharatanatyam, yet it is distinct for its quicksilver precision and detailed expressive
+                            technique and specially created pieces such as Tarangam, Simhanandini etc., which are unique
+                            to
+                            Kuchipudi.</p>
+                        <p class="text-blk subHeading">
+                            Kuchipudi today has many practioners across the globe, who continue to stretch its
+                            repertoire in
+                            both solo and ensemble works.
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pedagogy-card">
+                    <img src="/assets/bharatanatyam.png" alt="Bharatanatyam">
+
+                    <div class="pedagogy-card-content">
+                        <h3 class="highlight">Bharatanatyam</h3>
+
+                        <p>
+                            Guru Smt Rukmini Devi Arundale, Kalakshetra, Chennai
+                        </p>
+                        <p class="text-blk subHeading">
+                            Bharatanatyam is a classical dance form with origins in the southern state of Tamil Nadu,
+                            India,
+                            and today is one of the most popular among all Indian classical dance forms with performers
+                            and
+                            teachers spread across the world.</p>
+                        <p class="text-blk subHeading">
+                            Also one of the oldest of the dance forms, Bharatanatyam is known for its architectonic
+                            beauty
+                            and grammar, geometric and linear visuals, its extensive use of hand gestures (mudra)
+                            sculpturesque contours and the fine art of expression (abhinaya)</p>
+                        <p class="text-blk subHeading">
+                            Bharatanatyam is usually accompanied by Carnatic Music - the South Indian style of classical
+                            music, and is known for its story telling technique that brings to the viewer, tales from
+                            the
+                            rich and varied heritage and culture of India, as well as India's spirituality.</p>
+                        <p class="text-blk subHeading">
+                            Bharatanatyam today as a form, straddles solo and ensemble works; the traditional and the
+                            contemporary repertoire; with ease, as the style lends itself to conventional themes as well
+                            new
+                            creativity and aesthetics.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
