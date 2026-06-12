@@ -349,16 +349,15 @@ body {
 } */
 
 .dots {
+  height: 400px;
+  width: 400px;
   position: absolute;
-  width: 360px;
-  height: 360px;
-  top: 0;
+  top: 100px;
   left: 50%;
-
-  background-image: radial-gradient(#d9cfc5 2px, transparent 2px);
-  background-size: 18px 18px;
+  background-image: url(assets/mandala/full-ring.png);
+  background-size: cover;
   border-radius: 50%;
-
+  opacity: 0.2;
   animation:
     dotsRotate 30s linear infinite,
     dotsFloat 6s ease-in-out infinite;
@@ -495,8 +494,6 @@ body {
   animation:
     dotsRotate 5s linear infinite,
     dotsFloat 0s ease-in-out infinite;
-
-  color: #c9ae8d;
 }
 
 /* =========================
@@ -585,16 +582,14 @@ body {
 
 .pedagogy-card {
   background: rgba(255, 255, 255, 0.08);
-
   backdrop-filter: blur(8px);
-
   border-radius: 20px;
-
   overflow: hidden;
-
   transition: 0.4s ease;
-
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .pedagogy-card:hover {
@@ -602,7 +597,7 @@ body {
 }
 
 .pedagogy-card img {
-  width: 100%;
+  width: 75%;
 
   height: 350px;
 
@@ -621,7 +616,7 @@ body {
 
 .heading {
   font-family: "Cormorant Garamond", serif;
-  font-size: 5rem;
+  font-size: 3rem;
   line-height: 1.05;
   color: #ff0000;
   margin: 3rem;
@@ -631,7 +626,7 @@ body {
 
 .pedagogy-card-content h3 {
   font-family: "Cormorant Garamond", serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   line-height: 1.05;
   color: #222;
   margin-bottom: 10px;
@@ -640,7 +635,7 @@ body {
 
 .pedagogy-card-content p {
   font-family: "Poppins", sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 2;
   color: #555;
   margin-bottom: 8px;
