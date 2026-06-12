@@ -23,11 +23,12 @@
         }
 
         .main-training-card {
-            background: #f4f0eb;
-            border: 1px solid #999;
-            border-radius: 20px;
+            border-left: 3px dashed #8c626c;
+            border-radius: 5px;
             overflow: hidden;
             height: 100%;
+            border-right: 3px dashed #8c626c;
+            border-top: 3px dashed #8C626C;
         }
 
         .top-strip {
@@ -40,13 +41,14 @@
         }
 
         .top-strip img {
-            width: 45px;
+            width: 90px;
         }
 
         .top-strip span {
-            font-size: 24px;
-            color: #333;
-            font-family: 'Poppins', sans-serif;
+            font-size: 50px;
+            line-height: 1;
+            color: #2f3d38;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .card-content {
@@ -54,18 +56,12 @@
             min-height: 420px;
             display: flex;
             position: relative;
+            flex-direction: column;
         }
 
         .content-left {
-            width: 50%;
-            padding: 50px 40px;
-        }
-
-        .content-left h2 {
-            font-size: 70px;
-            line-height: 1;
-            color: #2f3d38;
-            font-family: 'Cormorant Garamond', serif;
+            width: 100%;
+            padding: 20px;
         }
 
         .content-left h2 span {
@@ -74,24 +70,16 @@
         }
 
         .content-left p {
-            margin-top: 25px;
-            color: #fff;
-            font-size: 18px;
-            max-width: 280px;
-        }
-
-        .schedule-pill {
-            width: 220px;
-            text-align: center;
-            background: white;
-            border-radius: 50px;
-            padding: 10px;
-            margin-top: 15px;
-            font-weight: 500;
+            font-family: "Poppins", sans-serif;
+            font-size: 1.3rem;
+            color: #070707;
+            letter-spacing: 1px;
+            line-height: 1.5;
+            text-align: justify;
         }
 
         .content-image {
-            width: 50%;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: flex-end;
@@ -99,9 +87,9 @@
 
         .content-image img {
             width: 100%;
-            max-width: 420px;
             object-fit: contain;
             transition: .5s;
+            margin-top: 5px;
         }
 
         .main-training-card:hover .content-image img {
@@ -111,7 +99,7 @@
         .bottom-info {
             display: flex;
             justify-content: space-between;
-            padding: 30px 40px;
+            padding: 15px;
             background: #f4f0eb;
         }
 
@@ -123,75 +111,6 @@
         .bottom-info p {
             margin: 0;
             color: #555;
-        }
-
-        /* RIGHT CARDS */
-
-        .mini-training-card {
-            background: #f8f8f8;
-            border: 1px solid #999;
-            border-radius: 20px;
-            padding: 25px;
-            transition: .4s;
-            overflow: hidden;
-        }
-
-        .mini-training-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, .08);
-        }
-
-        .mini-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-        }
-
-        .mini-text {
-            flex: 1;
-        }
-
-        .mini-text small {
-            color: #666;
-            font-size: 18px;
-        }
-
-        .mini-text h3 {
-            font-size: 48px;
-            color: #c7a98c;
-            font-family: 'Cormorant Garamond', serif;
-            margin: 10px 0;
-        }
-
-        .mini-text p {
-            color: #444;
-            max-width: 420px;
-        }
-
-        .info-line {
-            margin-top: 15px;
-            color: #555;
-            font-size: 17px;
-        }
-
-        .mini-image {
-            width: 320px;
-            height: 240px;
-            overflow: hidden;
-            border-radius: 120px;
-            flex-shrink: 0;
-        }
-
-        .mini-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: .5s;
-        }
-
-        .mini-training-card:hover .mini-image img {
-            transform: scale(1.08);
         }
 
         /* MOBILE */
@@ -225,15 +144,70 @@
                 border-radius: 20px;
             }
         }
+
+        .links {
+            color: #335234;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .contact-card {
+            height: 100%;
+        }
+
+        .contact-form .form-control {
+            border: 2px solid #8c626c;
+            border-radius: 12px;
+            padding: 15px 15px;
+            font-family: "Poppins", sans-serif;
+            box-shadow: none;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-form .form-control:focus {
+            border-color: #3d564d;
+            box-shadow: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 12px;
+            background: #3d564d;
+            color: #fff;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .submit-btn:hover {
+            background: #2d4139;
+            transform: translateY(-2px);
+        }
+
+        .company-details {
+            border-top: 2px dashed #8c626c;
+            padding-top: 20px;
+        }
+
+        .company-details h5 {
+            color: #3d564d;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .company-details p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 
 <body>
-
-    <header>
-        <img src="/assets/mandala/border1.jpg" width="100%" alt="">
-    </header>
-
     <!-- NAVBAR -->
 
     <nav class="navbar navbar-expand-lg">
@@ -270,61 +244,75 @@
             </a>
 
         </div>
+        <img src="/assets/mandala/border1.png" width="100%" alt="">
     </nav>
 
     <div class="container">
-        <section class="training-section py-5">
+        <section class="training-section py-5" st>
 
-            <div class="row g-4 align-items-stretch">
+            <div class="row g-4 align-items-stretch" style="border-bottom: 3px dashed #8c626c;border-radius: 30px;">
 
-                <!-- LEFT FEATURE CARD -->
-                <div class="col-lg-6">
+                <div class="col-lg-6 p-0">
 
                     <div class="main-training-card">
 
                         <div class="top-strip">
-                            <img src="assets/mudras/mudra6.png" alt="">
+                            <img src="assets/Sklogo.png" alt="">
                             <span>Shankarananda Kalakshetra</span>
                         </div>
 
                         <div class="card-content">
 
-                            <div class="content-left">
-                                <h2>
-                                    Kalakshetra style of
-                                    <span>Bharatanatyam</span>
-                                </h2>
+                            <div class="content-image">
+                                <img src="assets/training-1.jpg" alt="">
+                            </div>
 
+                            <div class="content-left">
                                 <p>
-                                    Start your classical dance journey with structured
-                                    training under experienced instructors.
+                                    Shankarananda Kalakshetra is a premier centre in Hyderabad for the classical arts.
                                 </p>
 
-                                <div class="schedule-pill">
-                                    Every Weekend
-                                </div>
+                                <p>
+                                    Students are trained in the practical aspects of Bharatanatyam, its theory, talam,
+                                    history, legend and myths , and philosophy . Senior students are also taught,
+                                    Nattuvangam and choreography. Other course offers include an annual summer
+                                    intensive, invitations to performances, and exposure to world-class artists and
+                                    performances.
+                                </p>
 
-                                <div class="schedule-pill">
-                                    Start From 8:00 AM
-                                </div>
+                                <p style="color: #3d564d;">
+                                    <strong>Admissions :</strong> Students will only be admitted into the program with
+                                    the approval of
+                                    the Artistic Director. Traditionally, new students join on Vijayadasami, an
+                                    auspicious day in the Hindu calendar.<strong> Admissions are accepted thrice a year
+                                        : July,
+                                        Vijayadashami day of every year, and January.</strong> Minimum age for joining
+                                    is 7 years of
+                                    age.
+                                </p>
+
                             </div>
 
-                            <div class="content-image">
-                                <img src="assets/training01.png" alt="">
-                            </div>
+
 
                         </div>
 
                         <div class="bottom-info">
 
                             <div>
-                                <h6>Register Here</h6>
-                                <p>www.anandaacademy.com</p>
+                                <h6>Enroll at :</h6>
+                                <p>
+                                    <a href="admissions.html" class="links">Admission</a>
+                                </p>
                             </div>
 
                             <div>
-                                <h6>Got Any Question?</h6>
-                                <p>+91 98765 43210</p>
+                                <h6>For Queries</h6>
+                                <p>
+                                    <a href="mailto:query.sk@gmail.com" class="links">
+                                        query.sk@gmail.com
+                                    </a>
+                                </p>
                             </div>
 
                         </div>
@@ -333,74 +321,63 @@
 
                 </div>
 
-                <!-- RIGHT SIDE CARDS -->
-                <div class="col-lg-6">
+                <div class="col-lg-2 p-0 m-0">
+                    <img src="assets/pillar.png" alt=""
+                        style="width: -webkit-fill-available;height:-webkit-fill-available;margin-top: -60px;">
+                </div>
 
-                    <div class="d-flex flex-column gap-4 h-100">
+                <div class="col-lg-4 p-0">
 
-                        <!-- CARD 1 -->
-                        <div class="mini-training-card">
+                    <div class="main-training-card contact-card">
 
-                            <div class="mini-content">
-
-                                <div class="mini-text">
-
-                                    <small>Instructor</small>
-
-                                    <h3>Ananda Nrityam</h3>
-
-                                    <p>
-                                        Learn expressive storytelling through dance,
-                                        rhythm and movement.
-                                    </p>
-
-                                    <div class="info-line">
-                                        📅 Every Saturday • 10:00 AM
-                                    </div>
-
-                                    <div class="info-line">
-                                        👤 Trainer : Senior Faculty
-                                    </div>
-
-                                </div>
-
-                                <div class="mini-image">
-                                    <img src="assets/training/training1.jpg" alt="">
-                                </div>
-
-                            </div>
-
+                        <div class="top-strip">
+                            <span style="font-size:40px;">Contact Us</span>
                         </div>
 
-                        <!-- CARD 2 -->
-                        <div class="mini-training-card">
+                        <div class="card-content p-4">
 
-                            <div class="mini-content">
+                            <!-- Contact Form -->
+                            <form class="contact-form">
 
-                                <div class="mini-text">
-
-                                    <small>Instructor</small>
-
-                                    <h3>Abhinaya Workshop</h3>
-
-                                    <p>
-                                        Develop facial expressions, stage presence
-                                        and emotional interpretation.
-                                    </p>
-
-                                    <div class="info-line">
-                                        📅 Sunday • 6:30 AM
-                                    </div>
-
-                                    <div class="info-line">
-                                        👤 Trainer : Guest Faculty
-                                    </div>
-
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
                                 </div>
 
-                                <div class="mini-image">
-                                    <img src="assets/training/training2.jpg" alt="">
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
                                 </div>
+
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="5" placeholder="Your Message"
+                                        required></textarea>
+                                </div>
+
+                                <button type="submit" class="submit-btn">
+                                    Send Message
+                                </button>
+
+                            </form>
+
+                            <!-- Company Details -->
+                            <div class="company-details mt-5">
+
+                                <h5>Shankarananda Kalakshetra</h5>
+                                <p>
+                                    <strong>Dr Ananda Shankar Jayant</strong><br>
+                                    Director,<br>
+                                    Shankarananda Kalakshetra<br>
+                                    C-52, Road No 10,<br>
+                                    Film Nagar, Jubilee Hills,<br>
+                                    Hyderabad - 500096,<br>
+                                    Telangana, INDIA.
+                                </p>
+
+                                <p>
+                                    <strong>Email:</strong><br>
+                                    <a href="mailto:query.sk@gmail.com" class="links">
+                                        query.sk@gmail.com
+                                    </a>
+                                </p>
 
                             </div>
 
@@ -409,7 +386,6 @@
                     </div>
 
                 </div>
-
             </div>
 
         </section>

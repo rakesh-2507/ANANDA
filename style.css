@@ -152,12 +152,9 @@ body {
 /* NAVBAR */
 
 .navbar {
-  padding: 35px 0;
-}
-
-header {
-  position: absolute;
-  top: 0;
+  padding: 0px 0px;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo-bg {
@@ -638,11 +635,12 @@ header {
   line-height: 1.05;
   color: #222;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .pedagogy-card-content p {
   font-family: "Poppins", sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 2;
   color: #555;
   margin-bottom: 8px;
