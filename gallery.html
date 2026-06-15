@@ -13,7 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@300;400;500&display=swap"
         rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/style.css">
     <style>
         body {
@@ -53,6 +54,9 @@
             cursor: pointer;
             z-index: 10;
             font-size: 24px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
         }
 
         .prev {
@@ -68,18 +72,40 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
+
             display: flex;
             gap: 10px;
-            z-index: 10
+
+            max-width: 90%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+
+            z-index: 10;
+            padding-bottom: 5px;
+
+            scrollbar-width: thin;
+            cursor: grab;
+            scrollbar-width: none;
+        }
+
+        .thumbs::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .thumbs::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, .5);
+            border-radius: 10px;
         }
 
         .thumbs img {
+            flex-shrink: 0;
             width: 90px;
             height: 60px;
             object-fit: cover;
             cursor: pointer;
             opacity: .5;
-            border: 2px solid transparent
+            border: 2px solid transparent;
         }
 
         .thumbs img.active {
@@ -152,11 +178,42 @@
         <div class="slide" style="background-image:url('assets/gallery/sk13.jpg')">
         </div>
 
-        <button class="nav prev">&#10094;</button>
-        <button class="nav next">&#10095;</button>
+
+        <div class="slide" style="background-image:url('assets/gallery/sk2.jpg')">
+        </div>
+        <div class="slide" style="background-image:url('assets/gallery/sk3.jpg')">
+        </div>
+        <div class="slide" style="background-image:url('assets/gallery/sk4.jpg')">
+        </div>
+        <div class="slide" style="background-image:url('assets/gallery/sk5.jpg')">
+        </div>
+        <div class="slide" style="background-image:url('assets/gallery/sk6.jpg')">
+        </div>
+        <div class="slide" style="background-image:url('assets/gallery/sk7.jpg')">
+        </div>
+        <div class="slide" style="background-image:url('assets/gallery/sk8.jpg')">
+        </div>
+        <div class="slide" style="background-image:url('assets/gallery/sk9.jpg')">
+        </div>
+        <div class="slide" style="background-image:url('assets/gallery/sk13.jpg')">
+        </div>
+
+        <button class="nav prev"><i class="fa fa-arrow-left"></i></button>
+        <button class="nav next"><i class="fa fa-arrow-right"></i></button>
 
         <div class="thumbs">
             <img class="active" src="assets/gallery/sk1.jpg">
+            <img src="assets/gallery/sk2.jpg">
+            <img src="assets/gallery/sk3.jpg">
+            <img src="assets/gallery/sk4.jpg">
+            <img src="assets/gallery/sk5.jpg">
+            <img src="assets/gallery/sk6.jpg">
+            <img src="assets/gallery/sk7.jpg">
+            <img src="assets/gallery/sk8.jpg">
+            <img src="assets/gallery/sk9.jpg">
+            <img src="assets/gallery/sk13.jpg">
+
+
             <img src="assets/gallery/sk2.jpg">
             <img src="assets/gallery/sk3.jpg">
             <img src="assets/gallery/sk4.jpg">
@@ -190,6 +247,38 @@
         });
 
         setInterval(() => showSlide((current + 1) % slides.length), 5000);
+    </script>
+    <script>
+        const slider = document.querySelector('.thumbs');
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
     </script>
 
 </body>
