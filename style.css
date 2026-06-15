@@ -125,11 +125,9 @@ a {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 20px;
-  padding: 18px 38px;
   border: 2px solid #222;
   border-radius: 60px;
-  color: #222;
+  color: #ffffff;
   text-decoration: none;
   font-size: 18px;
   letter-spacing: 3px;
