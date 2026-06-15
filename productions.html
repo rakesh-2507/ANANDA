@@ -16,6 +16,227 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="/style.css">
+    <style>
+        /* productions SECTION */
+
+        .productions-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .productions-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background: url("assets/mandala/Vloerkleed.png") no-repeat center center;
+            background-size: contain;
+
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .productions-section>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes floatHorizontal {
+            0% {
+                transform: translateX(-20px);
+            }
+
+            50% {
+                transform: translateX(20px);
+            }
+
+            100% {
+                transform: translateX(-20px);
+            }
+        }
+
+        .section-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 4rem;
+            font-weight: 600;
+            color: #2d2d2d;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sub-headings {
+            font-family: "Cormorant Garamond";
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2d2d2d;
+            text-align: justify;
+            margin: 5rem 0rem 3rem 0rem;
+        }
+
+        .sub-headings01 {
+            font-family: "Cormorant Garamond";
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #2d2d2d;
+            text-align: justify;
+            margin: 1rem 0rem 1rem 0rem;
+        }
+
+        .productions-grid {
+            display: flex;
+            gap: 35px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 10px;
+            scrollbar-width: none;
+        }
+
+        .production-card {
+            flex: 0 0 calc((100% - 140px) / 5);
+        }
+
+        .production-img {
+            position: relative;
+            overflow: visible;
+            border-radius: 18px;
+            height: 320px;
+            z-index: 2;
+        }
+
+        .img-frame {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .production-img::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: 0.4s;
+            z-index: 1;
+            border-radius: 15px;
+        }
+
+        .production-card:hover .production-img::after {
+            opacity: 1;
+        }
+
+        .production-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+            z-index: 0;
+        }
+
+        .production-card:hover .inner-img {
+            transform: scale(1);
+        }
+
+        .production-card h3 {
+            margin-top: 25px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .productions-section p {
+            margin-top: 8px;
+            font-family: "Poppins", sans-serif;
+            font-size: 1.3rem;
+            color: #666;
+            letter-spacing: 1px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 1200px) {
+            .productions-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .production-card {
+                flex: 0 0 calc((100% - 60px) / 3);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.8rem;
+            }
+
+            .productions-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .production-img {
+                height: 260px;
+            }
+
+            .production-card {
+                flex: 0 0 calc((100% - 20px) / 2);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .productions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .production-card {
+                flex: 0 0 85%;
+            }
+
+            .production-img {
+                height: 350px;
+            }
+        }
+
+        .view-more {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            width: 110px;
+            height: 110px;
+
+            border-radius: 50%;
+            background: #c5ab8e;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #f8f8f8;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            transform: translate(-50%, -50%) scale(0.6);
+            opacity: 0;
+            transition: 0.4s;
+            z-index: 2;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        .production-card:hover .view-more {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    </style>
 </head>
 
 <body>
@@ -43,7 +264,7 @@
                     <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="productions.html">Productions</a></li>
                     <li class="nav-item"><a class="nav-link" href="training.html">Training</a></li>
-                    <li class="nav-item"><a class="nav-link" href="media.html">Media</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Media</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 
                 </ul>
@@ -75,7 +296,8 @@
 
                     <a href="bull.html" class="production-card">
                         <div class="production-img">
-                            <img src="./assets/pro_cover1.jpg" alt="Bull & Tiger">
+                            <img src="./assets/square-border.png" class="img-frame" alt="">
+                            <img src="./assets/pro_cover1.jpg" class="inner-img" alt="Bull & Tiger">
                             <div class="view-more">
                                 View
                             </div>
@@ -85,7 +307,8 @@
 
                     <a href="bull.html" class="production-card">
                         <div class="production-img">
-                            <img src="./assets/pro_cover2.png" alt="SRI">
+                            <img src="./assets/square-border.png" class="img-frame" alt="">
+                            <img src="./assets/pro_cover2.png" class="inner-img" alt="SRI">
                             <div class="view-more">
                                 View
                             </div>
@@ -95,7 +318,8 @@
 
                     <a href="bull.html" class="production-card">
                         <div class="production-img">
-                            <img src="./assets/pro_cover3.jpg" alt="Kavyanjali">
+                            <img src="./assets/square-border.png" class="img-frame" alt="">
+                            <img src="./assets/pro_cover3.jpg" class="inner-img" alt="Kavyanjali">
                             <div class="view-more">
                                 View
                             </div>
@@ -105,7 +329,8 @@
 
                     <a href="bull.html" class="production-card">
                         <div class="production-img">
-                            <img src="./assets/pro_cover4.jpg" alt="Nrityopahara">
+                            <img src="./assets/square-border.png" class="img-frame" alt="">
+                            <img src="./assets/pro_cover4.jpg" class="inner-img" alt="Nrityopahara">
                             <div class="view-more">
                                 View
                             </div>
@@ -115,7 +340,8 @@
 
                     <a href="bull.html" class="production-card">
                         <div class="production-img">
-                            <img src="assets/pro_cover5.jpg" alt="Sri Rama Namam">
+                            <img src="./assets/square-border.png" class="img-frame" alt="">
+                            <img src="assets/pro_cover5.jpg" class="inner-img" alt="Sri Rama Namam">
                             <div class="view-more">
                                 View
                             </div>
@@ -125,19 +351,23 @@
 
                     <a href="bull.html" class="production-card">
                         <div class="production-img">
-                            <img src="assets/pro_cover6.jpg" alt="Dancing Tales">
+                            <img src="./assets/square-border.png" class="img-frame" alt="">
+                            <img src="assets/pro_cover6.jpg" class="inner-img" alt="Dancing Tales">
                             <div class="view-more">
                                 View
                             </div>
                         </div>
                         <h3>Dancing Tales .. Panchatantra 2006</h3>
                     </a>
+
                     <a href="bull.html" class="production-card">
-                        <div class="view-more">
-                            View
-                        </div>
+
                         <div class="production-img">
-                            <img src="assets/pro_cover7.jpg" alt="Mohana">
+                            <img src="./assets/square-border.png" class="img-frame" alt="">
+                            <img src="assets/pro_cover7.jpg" class="inner-img" alt="Mohana">
+                            <div class="view-more">
+                                View
+                            </div>
                         </div>
                         <h3>Mohana- Krsna beckons 2005</h3>
                     </a>
@@ -151,7 +381,8 @@
 
                     <a href="bull.html" class="production-card">
                         <div class="production-img">
-                            <img src="./assets/pro_cover8.jpg" alt="Shringara">
+                            <img src="./assets/square-border.png" class="img-frame" alt="">
+                            <img src="./assets/pro_cover8.jpg" class="inner-img" alt="Shringara">
                             <div class="view-more">
                                 View
                             </div>
@@ -161,7 +392,8 @@
 
                     <a href="bull.html" class="production-card">
                         <div class="production-img">
-                            <img src="./assets/pro_cover9.jpg" alt="Taalapatra">
+                            <img src="./assets/square-border.png" class="img-frame" alt="">
+                            <img src="./assets/pro_cover9.jpg" class="inner-img" alt="Taalapatra">
                             <div class="view-more">
                                 View
                             </div>
@@ -171,7 +403,8 @@
 
                     <a href="bull.html" class="production-card">
                         <div class="production-img">
-                            <img src="./assets/pro_cover10.jpg" alt="Thyagaraja Ramayanam">
+                            <img src="./assets/square-border.png" class="img-frame" alt="">
+                            <img src="./assets/pro_cover10.jpg" class="inner-img" alt="Thyagaraja Ramayanam">
                             <div class="view-more">
                                 View
                             </div>
@@ -181,7 +414,8 @@
 
                     <a href="bull.html" class="production-card">
                         <div class="production-img">
-                            <img src="./assets/pro_cover4.jpg" alt="Gitopadesa">
+                            <img src="./assets/square-border.png" class="img-frame" alt="">
+                            <img src="./assets/pro_cover4.jpg" class="inner-img" alt="Gitopadesa">
                             <div class="view-more">
                                 View
                             </div>
@@ -193,6 +427,43 @@
 
         </section>
     </div>
+    <script>
+        document.querySelectorAll('.productions-grid').forEach(slider => {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.classList.add('dragging');
+                startX = e.pageX;
+                scrollLeft = slider.scrollLeft;
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.classList.remove('dragging');
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const walk = (e.pageX - startX) * 2;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+
+            // Touch
+            slider.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].pageX;
+                scrollLeft = slider.scrollLeft;
+            });
+
+            slider.addEventListener('touchmove', (e) => {
+                const walk = (e.touches[0].pageX - startX) * 2;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
 </body>
 
 </html>

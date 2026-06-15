@@ -308,8 +308,6 @@ body {
   }
 }
 
-/* Index */
-
 /* =========================
    about SECTION
 ========================= */
@@ -318,7 +316,7 @@ body {
   min-height: calc(100vh - 90px);
   display: flex;
   align-items: center;
-  gap: 0px;
+  gap: 25px;
   position: relative;
   flex-direction: row;
   margin-bottom: 3rem;
@@ -337,17 +335,6 @@ body {
   height: -webkit-fill-available;
 }
 
-/* .left-bg {
-  position: absolute;
-  width: 340px;
-  height: 440px;
-  background: #ddd5cb;
-  border-radius: 180px 180px 0 0;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-} */
-
 .dots {
   height: 400px;
   width: 400px;
@@ -358,9 +345,7 @@ body {
   background-size: cover;
   border-radius: 50%;
   opacity: 0.2;
-  animation:
-    dotsRotate 30s linear infinite,
-    dotsFloat 6s ease-in-out infinite;
+  animation: dotsRotate 30s linear infinite;
 }
 
 @keyframes dotsRotate {
@@ -413,6 +398,7 @@ body {
   line-height: 2;
   color: #555;
   margin-bottom: 0px;
+  text-align: justify;
 }
 
 .schedule-btn {
@@ -474,16 +460,30 @@ body {
 }
 
 .circle-image {
+  position: relative;
   width: 450px;
   height: 450px;
-  border-radius: 50%;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.circle-image img {
+.inner-ring {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+}
+
+.outer-img {
+  position: absolute;
+  object-fit: cover;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .sun-icon {
@@ -538,8 +538,8 @@ body {
   }
 
   .circle-image {
-    width: 340px;
-    height: 340px;
+    width: 320px;
+    height: 320px;
   }
 
   .renew-card {
@@ -553,16 +553,16 @@ body {
   }
 
   .about-left img {
-    width: 350px;
-  }
-
-  .left-bg {
-    width: 240px;
-    height: 240px;
+    width: 320px;
   }
 
   .about-left {
     width: -webkit-fill-available;
+  }
+
+  .dots {
+    height: 320px;
+    width: 320px;
   }
 }
 
@@ -654,260 +654,4 @@ body {
   .pedagogy {
     margin: 0px;
   }
-}
-
-/* productions SECTION */
-
-.productions-section {
-  position: relative;
-  overflow: hidden;
-}
-
-.productions-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: url("assets/mandala/Vloerkleed.png") no-repeat center center;
-  background-size: contain;
-
-  opacity: 0.3;
-  z-index: 0;
-}
-
-.productions-section > * {
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes floatHorizontal {
-  0% {
-    transform: translateX(-20px);
-  }
-
-  50% {
-    transform: translateX(20px);
-  }
-
-  100% {
-    transform: translateX(-20px);
-  }
-}
-
-.section-title {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 4rem;
-  font-weight: 600;
-  color: #2d2d2d;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.sub-headings {
-  font-family: "Cormorant Garamond";
-  font-size: 2rem;
-  font-weight: 600;
-  color: #2d2d2d;
-  text-align: justify;
-  margin: 5rem 0rem 3rem 0rem;
-}
-.sub-headings01 {
-  font-family: "Cormorant Garamond";
-  font-size: 1.7rem;
-  font-weight: 600;
-  color: #2d2d2d;
-  text-align: justify;
-  margin: 1rem 0rem 1rem 0rem;
-}
-.productions-grid {
-  display: flex;
-  gap: 35px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 10px;
-  scrollbar-width: none;
-}
-
-.production-card {
-  flex: 0 0 calc((100% - 140px) / 5);
-  /* 5 visible cards */
-}
-
-.production-img {
-  position: relative;
-  overflow: visible;
-  border-radius: 18px;
-  height: 320px;
-  background: #f3f3f3;
-  z-index: 2;
-}
-
-/* Background card */
-.production-img::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background: #c5ab8e;
-  /* change color */
-  border-radius: 18px;
-  z-index: -1;
-  opacity: 0;
-  transition: all 0.45s ease;
-}
-
-.production-img::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-
-  opacity: 0;
-  transition: 0.4s;
-
-  z-index: 1;
-}
-
-.production-card:hover .production-img::after {
-  opacity: 1;
-}
-
-.production-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 18px;
-  transition: transform 0.5s ease;
-
-  position: relative;
-  z-index: 0;
-}
-
-/* Card zoom */
-.production-card:hover {
-  transform: scale(1.05);
-}
-
-/* Image zoom */
-.production-card:hover img {
-  transform: scale(1.02);
-}
-
-/* Bottom-left background card reveal */
-.production-card:hover .production-img::before {
-  left: -15px;
-  top: 15px;
-  opacity: 1;
-}
-
-.production-card h3 {
-  margin-top: 25px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2rem;
-  color: #333;
-}
-
-.productions-section p {
-  margin-top: 8px;
-  font-family: "Poppins", sans-serif;
-  font-size: 1.3rem;
-  color: #666;
-  letter-spacing: 1px;
-  line-height: 1.8;
-  text-align: justify;
-}
-
-/* Highlight first card like screenshot */
-.production-card:first-child .production-img::before {
-  content: "";
-  position: absolute;
-  left: -25px;
-  top: 25px;
-  width: 100%;
-  height: 100%;
-  background: #c5ab8e;
-  border-radius: 18px;
-  z-index: -1;
-}
-
-/* Responsive */
-
-@media (max-width: 1200px) {
-  .productions-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 992px) {
-  .production-card {
-    flex: 0 0 calc((100% - 60px) / 3);
-  }
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 2.8rem;
-  }
-
-  .productions-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .production-img {
-    height: 260px;
-  }
-
-  .production-card {
-    flex: 0 0 calc((100% - 20px) / 2);
-  }
-}
-
-@media (max-width: 576px) {
-  .productions-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .production-card {
-    flex: 0 0 85%;
-  }
-
-  .production-img {
-    height: 350px;
-  }
-}
-
-.view-more {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  width: 110px;
-  height: 110px;
-
-  border-radius: 50%;
-  background: #c5ab8e;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: #f8f8f8;
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-
-  transform: translate(-50%, -50%) scale(0.6);
-  opacity: 0;
-  transition: 0.4s;
-  z-index: 2;
-  font-family: "Courier New", Courier, monospace;
-}
-
-.production-card:hover .view-more {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
 }

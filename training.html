@@ -152,7 +152,8 @@
             .top-strip span {
                 font-size: 35px;
             }
-            .col-lg-2{
+
+            .col-lg-2 {
                 display: none;
             }
         }
@@ -168,8 +169,12 @@
             height: 100%;
         }
 
+        .contact-card h5 {
+            font-family: "Poppins", sans-serif;
+            margin: 0.5rem;
+        }
+
         .contact-form .form-control {
-            /* border: 2px solid #8c626c; */
             border-radius: 12px;
             padding: 15px 15px;
             font-family: "Poppins", sans-serif;
@@ -196,25 +201,6 @@
         .submit-btn:hover {
             background: #2d4139;
             transform: translateY(-2px);
-        }
-
-        .company-details {
-            border-top: 2px dashed #8c626c;
-            padding-top: 20px;
-        }
-
-        .company-details h5 {
-            color: #3d564d;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .company-details p {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #333;
-            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -244,7 +230,7 @@
                     <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="productions.html">Productions</a></li>
                     <li class="nav-item"><a class="nav-link" href="training.html">Training</a></li>
-                    <li class="nav-item"><a class="nav-link" href="media.html">Media</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Media</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 
                 </ul>
@@ -312,13 +298,6 @@
                         <div class="bottom-info">
 
                             <div>
-                                <h6>Enroll at :</h6>
-                                <p>
-                                    <a href="admissions.html" class="links">Admission</a>
-                                </p>
-                            </div>
-
-                            <div>
                                 <h6>For Queries</h6>
                                 <p>
                                     <a href="mailto:query.sk@gmail.com" class="links">
@@ -343,7 +322,7 @@
                     <div class="main-training-card contact-card">
 
                         <div class="top-strip">
-                            <span style="font-size:40px;">Contact Us</span>
+                            <span style="font-size:40px;">Admission Form</span>
                         </div>
 
                         <div class="card-content p-4">
@@ -352,16 +331,77 @@
                             <form class="contact-form">
 
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                    <input type="text" class="form-control" placeholder="Student Name" required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                    <input type="text" class="form-control" placeholder="DOB" onfocus="this.type='date'"
+                                        onblur="if(!this.value)this.type='text'">
                                 </div>
 
                                 <div class="mb-3">
-                                    <textarea class="form-control" rows="5" placeholder="Your Message"
-                                        required></textarea>
+                                    <input type="text" class="form-control" placeholder="Previous Experience, If any"
+                                        required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Previous Training Details"
+                                        required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="text" class="form-control"
+                                        placeholder="Previous gurus/schools, If any:" required>
+                                </div>
+
+                                <h5>Parent/Guardian</h5>
+
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Name of Parent or Guardian"
+                                        required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="number" class="form-control" placeholder="Mobile No" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Email" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="5"
+                                        placeholder="Postal address for correspondence" required></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">
+                                        Select Class Location :
+                                    </label>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="classLocation" id="filmNagar"
+                                            value="Film Nagar" required>
+                                        <label class="form-check-label" for="filmNagar">
+                                            Film Nagar
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="classLocation"
+                                            id="secunderabad" value="Secunderabad">
+                                        <label class="form-check-label" for="secunderabad">
+                                            Secunderabad
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="classLocation" id="madhapur"
+                                            value="Madhapur">
+                                        <label class="form-check-label" for="madhapur">
+                                            Madhapur
+                                        </label>
+                                    </div>
                                 </div>
 
                                 <button type="submit" class="submit-btn">
@@ -369,29 +409,6 @@
                                 </button>
 
                             </form>
-
-                            <!-- Company Details -->
-                            <div class="company-details mt-5">
-
-                                <h5>Shankarananda Kalakshetra</h5>
-                                <p>
-                                    <strong>Dr Ananda Shankar Jayant</strong><br>
-                                    Director,<br>
-                                    Shankarananda Kalakshetra<br>
-                                    C-52, Road No 10,<br>
-                                    Film Nagar, Jubilee Hills,<br>
-                                    Hyderabad - 500096,<br>
-                                    Telangana, INDIA.
-                                </p>
-
-                                <p>
-                                    <strong>Email:</strong><br>
-                                    <a href="mailto:query.sk@gmail.com" class="links">
-                                        query.sk@gmail.com
-                                    </a>
-                                </p>
-
-                            </div>
 
                         </div>
 
