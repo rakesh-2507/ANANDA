@@ -6,17 +6,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ananda Shankar Jayant</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="stylesheet" href="fonts.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            flex-shrink: 0;
+        }
+
+        #heroSlider {
+            flex: 1;
+            min-height: 0;
+            position: relative;
+        }
+
+        .carousel,
+        .carousel-inner,
+        .carousel-item {
+            height: 100%;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel {
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            transition: transform 1.2s ease-in-out;
+        }
+
+        .carousel-fade .carousel-item {
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .custom-indicators {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .custom-indicators button {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.4);
+
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: 2px;
+
+            position: relative;
+            padding-left: 50px;
+
+            transition: all 0.5s ease;
+        }
+
+        .custom-indicators button::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 20px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+
+            transition: all 0.5s ease;
+        }
+
+        .custom-indicators button.active {
+            color: #fff;
+            font-size: 42px;
+            font-weight: 600;
+            transform: translateX(-10px);
+        }
+
+        .custom-indicators button.active::before {
+            width: 45px;
+            background: #fff;
+        }
+
+        .main-footer {
+            position: absolute;
+            bottom: 0;
+            color: #ddd;
+            z-index: 2;
+            font-size: 12px;
+            padding: 0rem 1rem;
+        }
+
+        @media (max-width:768px) {
+            .carousel-item img {
+                height: auto;
+            }
+
+            .custom-indicators {
+                display: none;
+            }
+
+            .carousel,
+            .carousel-inner,
+            .carousel-item {
+                height: auto;
+            }
+
+            .main-footer {
+                position: relative;
+                color: #2f3d38;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- NAVBAR -->
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" style="background: #ece7e2;">
         <div class="container">
 
             <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -34,7 +159,7 @@
 
                 <ul class="navbar-nav">
 
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="productions.html">Productions</a></li>
                     <li class="nav-item"><a class="nav-link" href="training.html">Training</a></li>
@@ -45,55 +170,65 @@
 
             </div>
 
-            <a href="#" class="book-btn d-none d-lg-block">
+            <a href="training.html" class="book-btn d-none d-lg-block">
                 Admissions →
             </a>
 
         </div>
-        <img src="/assets/mandala/border1.png" width="100%" alt="">
     </nav>
 
 
 
-    <!-- HERO -->
+    <div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
 
-    <section class="hero">
+        <div class="custom-indicators">
+            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active">01</button>
 
-        <div class="container">
+            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1">
+                02
+            </button>
 
-            <div class="row align-items-center">
+            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2">
+                03
+            </button>
 
-                <div class="col-lg-6 hero-text">
+            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="3">
+                04
+            </button>
+        </div>
 
-                    <small>Dance with Joy</small>
+        <!-- Slides -->
+        <div class="carousel-inner">
 
-                    <h1 class="hero-title">
-                        Ananda Shankar Jayant
-                    </h1>
+            <div class="carousel-item active">
+                <img src="assets/pro_cover3.jpg" alt="Slide 1">
+            </div>
 
-                    <p>
-                        Dance to me has always been the manifest expression of the unmanifest impression. Yes, dance is
-                        not some rarefied, exotic activity, far removed from the perceivable.
-                    </p>
-                </div>
+            <div class="carousel-item">
+                <img src="assets/home2.jpg" alt="Slide 2">
+            </div>
 
+            <div class="carousel-item">
+                <img src="assets/home1.png" alt="Slide 3">
+            </div>
 
-                <div class="col-lg-6 hero-image">
-
-                    <div class="circle-bg">
-                        <img src="assets/circle-dots.png" class="img1" alt="">
-                    </div>
-
-                    <img src="/assets/kuchipudi2.png" alt="">
-
-                </div>
-
+            <div class="carousel-item">
+                <img src="assets/home3.png" alt="Slide 4">
             </div>
 
         </div>
+        <h3 class="main-footer">
+            © 2026 Ananda Shankar Jayant. All Rights Reserved.</h3>
+    </div>
+    <script>
+        const carousel = document.getElementById('heroSlider');
+        const indicators = document.querySelectorAll('.custom-indicators button');
 
-    </section>
-
+        carousel.addEventListener('slid.bs.carousel', function (event) {
+            indicators.forEach(btn => btn.classList.remove('active'));
+            indicators[event.to].classList.add('active');
+        });
+    </script>
 
 </body>
 
