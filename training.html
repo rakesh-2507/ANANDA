@@ -225,7 +225,8 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/kalakshetra/aboutus.html">About Shankarananda
                                     Kalakshetra</a></li>
-                            <li class="border-bottom-0"><a class="dropdown-item" href="/kalakshetra/tour.html">On Tour</a></li>
+                            <li class="border-bottom-0"><a class="dropdown-item" href="/kalakshetra/tour.html">On
+                                    Tour</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="productions.html">Productions</a></li>
@@ -265,29 +266,7 @@
                                 <img src="assets/training-1.jpg" alt="">
                             </div>
 
-                            <div class="content-left">
-                                <p>
-                                    Shankarananda Kalakshetra is a premier centre in Hyderabad for the classical arts.
-                                </p>
-
-                                <p>
-                                    Students are trained in the practical aspects of Bharatanatyam, its theory, talam,
-                                    history, legend and myths , and philosophy . Senior students are also taught,
-                                    Nattuvangam and choreography. Other course offers include an annual summer
-                                    intensive, invitations to performances, and exposure to world-class artists and
-                                    performances.
-                                </p>
-
-                                <p style="color: #3d564d;">
-                                    <strong>Admissions :</strong> Students will only be admitted into the program with
-                                    the approval of
-                                    the Artistic Director. Traditionally, new students join on Vijayadasami, an
-                                    auspicious day in the Hindu calendar.<strong> Admissions are accepted thrice a year
-                                        : July,
-                                        Vijayadashami day of every year, and January.</strong> Minimum age for joining
-                                    is 7 years of
-                                    age.
-                                </p>
+                            <div id="training-section" class="content-left">
 
                             </div>
 
@@ -419,6 +398,27 @@
 
         </section>
     </div>
+    <script>
+        fetch('https://anandashankar.sidpz.com/api/section/training/')
+            .then(res => res.json())
+            .then(data => {
+
+                const temp = document.createElement('div');
+                temp.innerHTML = data.html_content;
+
+                // Remove hidden elements
+                temp.querySelectorAll('[style*="display:none"]').forEach(el => el.remove());
+
+                // Get individual sections
+                const about = temp.querySelector('.content-left');
+
+                // Render separately
+                if (about) {
+                    document.getElementById('training-section').innerHTML = about.innerHTML;
+                }
+            })
+            .catch(err => console.error(err));
+    </script>
 
 </body>
 

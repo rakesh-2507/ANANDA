@@ -62,7 +62,8 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/kalakshetra/aboutus.html">About Shankarananda
                                     Kalakshetra</a></li>
-                            <li class="border-bottom-0"><a class="dropdown-item" href="/kalakshetra/tour.html">On Tour</a></li>
+                            <li class="border-bottom-0"><a class="dropdown-item" href="/kalakshetra/tour.html">On
+                                    Tour</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="../productions.html">Productions</a></li>
@@ -84,75 +85,7 @@
     <div class="container kala_aboutsection">
         <div class="row p-1 my-4">
             <div class="col-lg-9">
-                <h1>Shankarananda Kalakshetra</h1>
-                <p>Shankarananda Kalakshetra - a registered Not for profit society (Regd. No 1966 of 1984 A P Public
-                    Societies
-                    Registration Act) is nationally recognized, as a premier institution for classical music and dance
-                    in
-                    Hyderabad, India. Established in 1979, the institution is a center nurturing excellence, where
-                    budding
-                    talents are trained in the classical art forms of dance and music.</p>
-                <p>The institution is a renowned center for learning where students are taught dance, theory, music,
-                    yoga,
-                    Nattuvangam, costume, stage, sound & light techniques thus, providing a holistic training in the
-                    performing
-                    arts.</p>
-                <p>Shankarananda Kalakshetra is particularly known for exacting standards, and students here, learn to
-                    balance
-                    the traditional with the modern with ease and maturity. Students trained at Shankarananda
-                    Kalakshetra
-                    not
-                    only learn dance and music, but by constant exposure to holistic learning processes, and continuous
-                    engagement with the arts, have grown to be well rounded and responsible citizens, besides making a
-                    mark
-                    for
-                    themselves as artists.</p>
-                <p>More than 1000 students have been trained in dance here, and have received innumerable prizes and
-                    accolades
-                    as performers and teachers. Students are recipients of Junior and Senior National Scholarships for
-                    dance
-                    and
-                    are empanelled artists on Doordarshan and ICCR. Twenty nine students of the institution have staged
-                    stunning
-                    debuts, and have grown to be brilliant performers and teachers.</p>
-                <p>In recognition of its high standards of training and teaching Shankarananda Kalakshetra, is one of
-                    the
-                    few
-                    recipients of production, salary and equipment grants, from the Department of Culture, Government of
-                    India
-                    over the last few years. Shankarananda Kalakshetra is also one of the very few institutions of the
-                    country,
-                    recognized as a Programme Study Centre of the Indra Gandhi National Open University (IGNOU), for
-                    Bharatanatyam Kuchipudi and Carnatic Music.
-                </p>
-                <p>
-                    Further, committed and talented students get the opportunity to be part of the renowned
-                    Shankarananda
-                    Kalakshetra ensemble, and participate in the myriad traditional and contemporary dance productions
-                    of
-                    Shankarananda Kalakshetra, across the world.
-                </p>
-                <p>
-                    The members of the Shankarananda Kalakshetra ensemble, are dancers trained by Ananda Shankar Jayant,
-                    and
-                    have forged a reputation for their extraordinary group productions.
-                </p>
-                <p>
-                    Shankarananda Kalakshetra is an empanelled organization of Indian Council for Cultural Relations,
-                    and
-                    has
-                    been selected to represent India at various International Dance Festivals. The ensemble have
-                    performed
-                    in 5
-                    continents to critical acclaim Shankarananda Kalakshetra, is an oasis of classical arts, engaging in
-                    every
-                    aspect of creative endeavour, by training the future generation of artists, creating new dance
-                    productions,
-                    presenting the stars of tomorrow, irrigating the landscape art with signature festivals and
-                    publications;
-                    besides, cultivating and fostering an audience for art through presentations, lectures and
-                    conferences.
-                </p>
+                <div id="content"></div>
             </div>
             <div class="col-lg-3 kala_imgs">
                 <img src="../assets/training-1.jpg" alt="" width="100%">
@@ -162,6 +95,22 @@
             </div>
         </div>
     </div>
+    <script>
+        fetch('https://anandashankar.sidpz.com/api/section/sk-about/')
+            .then(res => res.json())
+            .then(data => {
+
+                const temp = document.createElement('div');
+                temp.innerHTML = data.html_content;
+
+                temp.querySelectorAll('[style*="display:none"]').forEach(el => el.remove());
+
+                document.getElementById('content').innerHTML = temp.innerHTML;
+            })
+            .catch(err => console.error(err));
+    </script>
+</body>
+
 </body>
 
 </html>

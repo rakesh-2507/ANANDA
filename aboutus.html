@@ -51,7 +51,8 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/kalakshetra/aboutus.html">About Shankarananda
                                     Kalakshetra</a></li>
-                            <li class="border-bottom-0"><a class="dropdown-item" href="/kalakshetra/tour.html">On Tour</a></li>
+                            <li class="border-bottom-0"><a class="dropdown-item" href="/kalakshetra/tour.html">On
+                                    Tour</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="productions.html">Productions</a></li>
@@ -82,37 +83,7 @@
 
             <!-- CENTER CONTENT -->
             <div class="about-content">
-
-                <h1>
-                    Ananda Shankar Jayant
-
-                </h1>
-
-                <p>
-                    Dr Ananda Shankar Jayant, is celebrated as one of India’s leading classical dancers, choreographers
-                    and dance scholars.
-                    <br>
-                    Performing in the two classical styles of Bharatanatyam and Kuchipudi, Ananda, imbues to the
-                    technique and grammar of her dance, a sparkling quality that bristles with life.
-
-                </p>
-
-
-
-                <div class="stats">
-
-                    <div>
-                        <h2>10+</h2>
-                        <span>Awards</span>
-                    </div>
-
-                    <div>
-                        <h2>10K+</h2>
-                        <span>Students</span>
-                    </div>
-
-                </div>
-
+                <div id="about-section"></div>
             </div>
 
             <!-- RIGHT IMAGE -->
@@ -136,33 +107,8 @@
 
                 <div class="pedagogy-card">
                     <img src="/assets/kuchipudi.png" alt="Kuchipudi">
-
                     <div class="pedagogy-card-content kuchipudi_content">
-                        <h3 class="highlight">Kuchipudi</h3>
-
-                        <p class="text-blk subHeading">
-                            Guru Sri Pasumarthy Ramalinga Shastry
-                        </p>
-                        <p class="text-blk subHeading">
-                            Kuchipudi ,one of the seven classical dance styles of India , takes its name from the
-                            village of
-                            its origin, Kuchipudi, in the southern state of Andhra Pradesh.
-                        </p>
-                        <p class="text-blk subHeading">
-                            Kuchipudi as a style is known for its verve and vivacity .Movements are rounded and
-                            fleet-footed, performed with grace and fluidity.</p>
-                        <p class="text-blk subHeading">
-                            Performed to South Indian classical music; Kuchipudi shares many common elements with
-                            Bharatanatyam, yet it is distinct for its quicksilver precision and detailed expressive
-                            technique and specially created pieces such as Tarangam, Simhanandini etc., which are unique
-                            to
-                            Kuchipudi.</p>
-                        <p class="text-blk subHeading">
-                            Kuchipudi today has many practioners across the globe, who continue to stretch its
-                            repertoire in
-                            both solo and ensemble works.
-
-                        </p>
+                        <div id="kuchipudi-section"></div>
                     </div>
                 </div>
 
@@ -170,33 +116,7 @@
                     <img src="/assets/bharatanatyam.png" alt="Bharatanatyam">
 
                     <div class="pedagogy-card-content bharath_content">
-                        <h3 class="highlight">Bharatanatyam</h3>
-
-                        <p>
-                            Guru Smt Rukmini Devi Arundale, Kalakshetra, Chennai
-                        </p>
-                        <p class="text-blk subHeading">
-                            Bharatanatyam is a classical dance form with origins in the southern state of Tamil Nadu,
-                            India,
-                            and today is one of the most popular among all Indian classical dance forms with performers
-                            and
-                            teachers spread across the world.</p>
-                        <p class="text-blk subHeading">
-                            Also one of the oldest of the dance forms, Bharatanatyam is known for its architectonic
-                            beauty
-                            and grammar, geometric and linear visuals, its extensive use of hand gestures (mudra)
-                            sculpturesque contours and the fine art of expression (abhinaya)</p>
-                        <p class="text-blk subHeading">
-                            Bharatanatyam is usually accompanied by Carnatic Music - the South Indian style of classical
-                            music, and is known for its story telling technique that brings to the viewer, tales from
-                            the
-                            rich and varied heritage and culture of India, as well as India's spirituality.</p>
-                        <p class="text-blk subHeading">
-                            Bharatanatyam today as a form, straddles solo and ensemble works; the traditional and the
-                            contemporary repertoire; with ease, as the style lends itself to conventional themes as well
-                            new
-                            creativity and aesthetics.
-                        </p>
+                        <div id="bharatanatyam-section"></div>
                     </div>
                 </div>
 
@@ -206,6 +126,37 @@
 
 
     </div>
+
+    <script>
+        fetch('https://anandashankar.sidpz.com/api/section/about/')
+            .then(res => res.json())
+            .then(data => {
+
+                const temp = document.createElement('div');
+                temp.innerHTML = data.html_content;
+
+                // Remove hidden elements
+                temp.querySelectorAll('[style*="display:none"]').forEach(el => el.remove());
+
+                // Get individual sections
+                const about = temp.querySelector('.about-content');
+                const kuchipudi = temp.querySelector('.kuchipudi_content');
+                const bharatanatyam = temp.querySelector('.bharath_content');
+
+                // Render separately
+                if (about) {
+                    document.getElementById('about-section').innerHTML = about.innerHTML;
+                }
+                if (kuchipudi) {
+                    document.getElementById('kuchipudi-section').innerHTML = kuchipudi.innerHTML;
+                }
+
+                if (bharatanatyam) {
+                    document.getElementById('bharatanatyam-section').innerHTML = bharatanatyam.innerHTML;
+                }
+            })
+            .catch(err => console.error(err));
+    </script>
 </body>
 
 </html>
