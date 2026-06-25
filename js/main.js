@@ -27,65 +27,59 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.querySelectorAll(".cards-wrapper").forEach((slider) => {
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+function initCardDrag() {
+  document.querySelectorAll(".cards-wrapper").forEach((slider) => {
 
-  slider.addEventListener("mousedown", (e) => {
-    isDown = true;
-    slider.classList.add("dragging");
+    if (slider.dataset.dragInit) return;
+    slider.dataset.dragInit = "true";
 
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener("mousedown", (e) => {
+      isDown = true;
+      startX = e.pageX;
+      scrollLeft = slider.scrollLeft;
+      slider.classList.add("dragging");
+    });
+
+    slider.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+
+      e.preventDefault();
+
+      const walk = (e.pageX - startX) * 2;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+
+    slider.addEventListener("mouseup", () => {
+      isDown = false;
+      slider.classList.remove("dragging");
+    });
+
+    slider.addEventListener("mouseleave", () => {
+      isDown = false;
+      slider.classList.remove("dragging");
+    });
+
+    // Mobile
+    slider.addEventListener("touchstart", (e) => {
+      isDown = true;
+      startX = e.touches[0].pageX;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener("touchmove", (e) => {
+      if (!isDown) return;
+
+      const walk = (e.touches[0].pageX - startX) * 2;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+
+    slider.addEventListener("touchend", () => {
+      isDown = false;
+    });
+
   });
-
-  slider.addEventListener("mouseleave", () => {
-    isDown = false;
-    slider.classList.remove("dragging");
-  });
-
-  slider.addEventListener("mouseup", () => {
-    isDown = false;
-    slider.classList.remove("dragging");
-  });
-
-  slider.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-
-    e.preventDefault();
-
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2;
-
-    slider.scrollLeft = scrollLeft - walk;
-  });
-});
-
-document.querySelectorAll(".cards-wrapper").forEach((slider) => {
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-
-  const startDrag = (x) => {
-    isDown = true;
-    startX = x;
-    scrollLeft = slider.scrollLeft;
-  };
-
-  const moveDrag = (x) => {
-    if (!isDown) return;
-
-    const walk = (x - startX) * 2;
-    slider.scrollLeft = scrollLeft - walk;
-  };
-
-  slider.addEventListener("mousedown", (e) => startDrag(e.pageX));
-  slider.addEventListener("mousemove", (e) => moveDrag(e.pageX));
-  slider.addEventListener("mouseup", () => (isDown = false));
-  slider.addEventListener("mouseleave", () => (isDown = false));
-
-  slider.addEventListener("touchstart", (e) => startDrag(e.touches[0].pageX));
-  slider.addEventListener("touchmove", (e) => moveDrag(e.touches[0].pageX));
-  slider.addEventListener("touchend", () => (isDown = false));
-});
+}
