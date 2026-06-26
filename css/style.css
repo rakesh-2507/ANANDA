@@ -776,15 +776,15 @@ body {
 }
 
 .production-card {
-  flex: 0 0 calc((100% - 140px) / 5);
+  flex: 0 0 calc((100% - 140px) / 4);
 }
 
 .production-img {
-  position: relative;
-  overflow: visible;
-  border-radius: 18px;
-  height: 320px;
-  z-index: 2;
+    position: relative;
+    overflow: visible;
+    border-radius: 18px;
+    height: 380px;
+    z-index: 2;
 }
 
 .img-frame {

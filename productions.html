@@ -77,145 +77,11 @@
                 and neo classical movement technique, creating the warp and weft of a rich and acclaimed repertoire.</p>
 
 
-            <div class="production full_length">
-                <h3 class="sub-headings">Full Length Productions</h3>
-                <div class="productions-grid">
-
-                    <a href="bull.html" class="production-card">
-                        <div class="production-img">
-                            <img src="./assets/square-border.png" class="img-frame" alt="">
-                            <img src="./assets/pro_cover1.jpg" class="inner-img" alt="Bull & Tiger">
-                            <div class="view-more">
-                                View
-                            </div>
-                        </div>
-                        <h3>Tales from the Bull and the Tiger 2018</h3>
-                    </a>
-
-                    <a href="bull.html" class="production-card">
-                        <div class="production-img">
-                            <img src="./assets/square-border.png" class="img-frame" alt="">
-                            <img src="./assets/pro_cover2.png" class="inner-img" alt="SRI">
-                            <div class="view-more">
-                                View
-                            </div>
-                        </div>
-                        <h3>SRI - The Goddess Within 2013</h3>
-                    </a>
-
-                    <a href="bull.html" class="production-card">
-                        <div class="production-img">
-                            <img src="./assets/square-border.png" class="img-frame" alt="">
-                            <img src="./assets/pro_cover3.jpg" class="inner-img" alt="Kavyanjali">
-                            <div class="view-more">
-                                View
-                            </div>
-                        </div>
-                        <h3>Kavyanjali – An ode to Gurudev 2012</h3>
-                    </a>
-
-                    <a href="bull.html" class="production-card">
-                        <div class="production-img">
-                            <img src="./assets/square-border.png" class="img-frame" alt="">
-                            <img src="./assets/pro_cover4.jpg" class="inner-img" alt="Nrityopahara">
-                            <div class="view-more">
-                                View
-                            </div>
-                        </div>
-                        <h3>Nrityopahara 2010</h3>
-                    </a>
-
-                    <a href="bull.html" class="production-card">
-                        <div class="production-img">
-                            <img src="./assets/square-border.png" class="img-frame" alt="">
-                            <img src="assets/pro_cover5.jpg" class="inner-img" alt="Sri Rama Namam">
-                            <div class="view-more">
-                                View
-                            </div>
-                        </div>
-                        <h3>Sri Rama Namam- Entha Ruchi ra 2007</h3>
-                    </a>
-
-                    <a href="bull.html" class="production-card">
-                        <div class="production-img">
-                            <img src="./assets/square-border.png" class="img-frame" alt="">
-                            <img src="assets/pro_cover6.jpg" class="inner-img" alt="Dancing Tales">
-                            <div class="view-more">
-                                View
-                            </div>
-                        </div>
-                        <h3>Dancing Tales .. Panchatantra 2006</h3>
-                    </a>
-
-                    <a href="bull.html" class="production-card">
-
-                        <div class="production-img">
-                            <img src="./assets/square-border.png" class="img-frame" alt="">
-                            <img src="assets/pro_cover7.jpg" class="inner-img" alt="Mohana">
-                            <div class="view-more">
-                                View
-                            </div>
-                        </div>
-                        <h3>Mohana- Krsna beckons 2005</h3>
-                    </a>
-
-                </div>
-            </div>
-
-            <div class="production ekaharyas">
-                <h3 class="sub-headings">Ekaharyas- Mono Drama</h3>
-                <div class="productions-grid">
-
-                    <a href="bull.html" class="production-card">
-                        <div class="production-img">
-                            <img src="./assets/square-border.png" class="img-frame" alt="">
-                            <img src="./assets/pro_cover8.jpg" class="inner-img" alt="Shringara">
-                            <div class="view-more">
-                                View
-                            </div>
-                        </div>
-                        <h3>Shringara Darpanam 2011</h3>
-                    </a>
-
-                    <a href="bull.html" class="production-card">
-                        <div class="production-img">
-                            <img src="./assets/square-border.png" class="img-frame" alt="">
-                            <img src="./assets/pro_cover9.jpg" class="inner-img" alt="Taalapatra">
-                            <div class="view-more">
-                                View
-                            </div>
-                        </div>
-                        <h3>Taalapatra- Hymns from the Hills 2010</h3>
-                    </a>
-
-                    <a href="bull.html" class="production-card">
-                        <div class="production-img">
-                            <img src="./assets/square-border.png" class="img-frame" alt="">
-                            <img src="./assets/pro_cover10.jpg" class="inner-img" alt="Thyagaraja Ramayanam">
-                            <div class="view-more">
-                                View
-                            </div>
-                        </div>
-                        <h3>Thyagaraja Ramayanam 1987</h3>
-                    </a>
-
-                    <a href="bull.html" class="production-card">
-                        <div class="production-img">
-                            <img src="./assets/square-border.png" class="img-frame" alt="">
-                            <img src="./assets/pro_cover4.jpg" class="inner-img" alt="Gitopadesa">
-                            <div class="view-more">
-                                View
-                            </div>
-                        </div>
-                        <h3>Gitopadesa 1987</h3>
-                    </a>
-                </div>
-            </div>
-
+            <div id="productionsContainer"></div>
         </section>
     </div>
     <script>
-        document.querySelectorAll('.productions-grid').forEach(slider => {
+        function enableDrag(slider) {
             let isDown = false;
             let startX;
             let scrollLeft;
@@ -239,7 +105,7 @@
                 slider.scrollLeft = scrollLeft - walk;
             });
 
-            // Touch
+            // Touch support
             slider.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].pageX;
                 scrollLeft = slider.scrollLeft;
@@ -249,8 +115,67 @@
                 const walk = (e.touches[0].pageX - startX) * 2;
                 slider.scrollLeft = scrollLeft - walk;
             });
-        });
+        }    </script>
+    <script>
+        fetch("https://anandashankar.sidpz.com/home/admin/api/production/")
+            .then(res => res.json())
+            .then(data => {
+
+                // Group by production_type
+                const grouped = data.reduce((acc, item) => {
+                    if (!acc[item.production_type]) {
+                        acc[item.production_type] = [];
+                    }
+                    acc[item.production_type].push(item);
+                    return acc;
+                }, {});
+
+                const container = document.getElementById("productionsContainer");
+                container.innerHTML = "";
+
+                Object.entries(grouped).forEach(([type, productions]) => {
+
+                    const section = document.createElement("div");
+                    section.className = "production";
+
+                    section.innerHTML = `
+        <h3 class="sub-headings">${type}</h3>
+
+        <div class="productions-grid">
+          ${productions.map(item => `
+            <a href="bull.html?id=${item.id}" class="production-card">
+                <div class="production-img">
+
+                    <!-- Keep this hardcoded -->
+                    <img src="./assets/square-border.png"
+                         class="img-frame"
+                         alt="">
+
+                    <!-- API Image -->
+                    <img src="${item.cover_image}"
+                         class="inner-img"
+                         alt="${item.title}">
+
+                    <div class="view-more">
+                        View
+                    </div>
+
+                </div>
+
+                <h3>${item.title} ${item.production_year}</h3>
+            </a>
+          `).join("")}
+        </div>
+      `;
+
+                    container.appendChild(section);
+                });
+                document.querySelectorAll(".productions-grid").forEach(enableDrag);
+
+            })
+            .catch(console.error);
     </script>
+
 </body>
 
 </html>
