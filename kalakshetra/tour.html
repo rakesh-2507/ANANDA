@@ -151,8 +151,8 @@
 
                     const cards = grouped[year].map(item => {
 
-                        const date = item.dattim
-                            ? new Date(item.dattim).toLocaleDateString('en-GB')
+                        const date = item.dtm
+                            ? new Date(item.dtm).toLocaleDateString('en-GB')
                             : 'N/A';
 
                         return `
