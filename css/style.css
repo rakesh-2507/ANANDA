@@ -927,7 +927,7 @@ body {
 
 .section-tag {
   display: inline-block;
-  font-size: 20px;
+  font-size: 25px;
   color: #444;
   margin-bottom: 0px;
   font-family: "Cormorant Garamond", serif;
@@ -935,7 +935,7 @@ body {
 
 .prod-title {
   font-family: "Cormorant Garamond", serif;
-  font-size: 72px;
+  font-size: 40px;
   line-height: 1.1;
   color: #c5ab8a;
   margin-bottom: 5px;
@@ -954,11 +954,15 @@ body {
 }
 
 .prod-qa {
-  font-size: 20px;
+  font-size: 14px;
   line-height: 1.9;
   color: #444;
-  margin-bottom: 25px;
+  margin-bottom: 0;
   text-align: justify;
+
+  p {
+    margin-bottom: 1.5rem;
+  }
 }
 
 .benefits-grid {
@@ -1269,7 +1273,7 @@ body {
 
 .left-bull::after {
   content: "";
-  background: url(assets/mandala/full-ring.jpg);
+  background: url(/assets/mandala/full-ring.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   width: 50%;
