@@ -713,7 +713,7 @@ body {
   position: absolute;
   inset: 0;
 
-  background: url("assets/mandala/Vloerkleed.png") no-repeat center center;
+  background: url("/assets/mandala/full-ring.png") no-repeat center center;
   background-size: contain;
 
   opacity: 0.3;
