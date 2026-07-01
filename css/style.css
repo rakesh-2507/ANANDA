@@ -709,15 +709,18 @@ body {
 }
 
 .productions-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: url("/assets/mandala/full-ring.png") no-repeat center center;
-  background-size: contain;
-
-  opacity: 0.3;
-  z-index: 0;
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url(/assets/mandala/full-ring.png) no-repeat center center;
+    background-size: contain;
+    opacity: 0.1;
+    z-index: 0;
+    top: 20%;
+    left: 50%;
+    animation: dotsRotate 30s linear infinite;
+    width: 100%;
+    height: auto;
 }
 
 .productions-section > * {
