@@ -336,11 +336,15 @@ body {
 
 @media (max-width: 576px) {
   .hero-title {
-    font-size: 42px;
+    font-size: 30px;
   }
 
   .hero-text p {
     font-size: 16px;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
   }
 
   .brand {
@@ -444,6 +448,9 @@ body {
   color: #555;
   margin-bottom: 0px;
   text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
 }
 
 .schedule-btn {
@@ -571,7 +578,7 @@ body {
 
 @media (max-width: 768px) {
   .about-content h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
   }
 
   .stats {
@@ -579,7 +586,7 @@ body {
   }
 
   .stats h2 {
-    font-size: 50px;
+    font-size: 30px;
   }
 
   .circle-image {
@@ -608,6 +615,9 @@ body {
   .dots {
     height: 320px;
     width: 320px;
+  }
+  .about-content p {
+    font-size: 12px;
   }
 }
 
@@ -685,6 +695,9 @@ body {
   color: #555;
   margin-bottom: 8px;
   text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
 }
 
 @media (max-width: 768px) {
@@ -757,6 +770,9 @@ body {
   font-weight: 600;
   color: #2d2d2d;
   text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
   margin: 5rem 0rem 3rem 0rem;
 }
 
@@ -766,6 +782,9 @@ body {
   font-weight: 600;
   color: #2d2d2d;
   text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
   margin: 1rem 0rem 1rem 0rem;
 }
 
@@ -960,6 +979,9 @@ body {
   color: #444;
   margin-bottom: 25px;
   text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
 
   p {
     margin: 0rem 1rem;
@@ -971,7 +993,6 @@ body {
   line-height: 1.9;
   color: #444;
   margin-bottom: 0;
-  text-align: justify;
 
   p {
     margin-bottom: 1.5rem;
