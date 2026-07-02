@@ -1179,22 +1179,6 @@ body {
   color: #c5ab8a;
 }
 
-/* .left-bull::after {
-  content: "";
-  background: url(/assets/mandala/full-ring.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 40%;
-  height: 100%;
-  position: fixed;
-  left: 2%;
-  top: 15%;
-  z-index: 1;
-  opacity: 0.09;
-  animation: dotsRotate 150s linear infinite;
-    transform-origin: center center;
-} */
-
 .modal-actions {
   position: absolute;
   bottom: 30px;
