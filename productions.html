@@ -8,10 +8,204 @@
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/main.js"></script>
+    <style>
+        .productions-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .productions-section::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            top: 20%;
+            left: 50%;
+            background: url("/assets/mandala/full-ring.png") no-repeat center;
+            background-size: contain;
+            opacity: 0.1;
+            animation: dotsRotate 30s linear infinite;
+            z-index: 0;
+        }
+
+        .productions-section>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+            text-align: center;
+            font: 600 4rem "Cormorant Garamond", serif;
+            color: #2d2d2d;
+        }
+
+        .sub-headings {
+            margin: 5rem 0 3rem;
+            font: 600 2rem "Cormorant Garamond", serif;
+            color: #2d2d2d;
+        }
+
+        .productions-section p {
+            margin-top: 8px;
+            font: 1.3rem/2 "Poppins", sans-serif;
+            color: #666;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .production-card {
+            display: block;
+            text-decoration: none;
+        }
+
+        .production-card h3 {
+            margin-top: 20px;
+            text-align: center;
+            font: 600 2rem "Cormorant Garamond", serif;
+            color: #333;
+        }
+
+        .production-img {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 18px;
+        }
+
+        .production-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .img-frame {
+            position: absolute;
+            inset: 0;
+            object-fit: fill !important;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .production-img::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            opacity: 0;
+            transition: opacity .35s ease;
+            z-index: 1;
+        }
+
+        .production-card:hover .production-img::after {
+            opacity: 1;
+        }
+
+        .view-more {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #c5ab8e;
+            color: #fff;
+            font: 500 13px "Courier New", monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: translate(-50%, -50%) scale(.8);
+            opacity: 0;
+            transition: all .35s ease;
+            z-index: 2;
+        }
+
+        .production-card:hover .view-more {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .swiper-wrapper-container {
+            position: relative;
+            padding: 0 55px;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 42px;
+            height: 42px;
+            margin: 0;
+            top: 40%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            background: #c5ab8e;
+            color: #fff;
+            transition: .3s;
+        }
+
+        .swiper-button-prev {
+            left: 0;
+        }
+
+        .swiper-button-next {
+            right: 0;
+        }
+
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover {
+            background: #efd9bf;
+            color: #000;
+        }
+
+        @media (max-width: 992px) {
+            .productions-section p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .section-title {
+                font-size: 2.8rem;
+            }
+
+            .sub-headings {
+                font-size: 1.7rem;
+                margin: 3rem 0 2rem;
+            }
+
+            .production-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .production-img {
+                height: 320px;
+            }
+
+            .swiper-wrapper-container {
+                padding: 0 35px;
+            }
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -81,47 +275,11 @@
         </section>
     </div>
     <script>
-        function enableDrag(slider) {
-            let isDown = false;
-            let startX;
-            let scrollLeft;
-
-            slider.addEventListener('mousedown', (e) => {
-                isDown = true;
-                slider.classList.add('dragging');
-                startX = e.pageX;
-                scrollLeft = slider.scrollLeft;
-            });
-
-            window.addEventListener('mouseup', () => {
-                isDown = false;
-                slider.classList.remove('dragging');
-            });
-
-            slider.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const walk = (e.pageX - startX) * 2;
-                slider.scrollLeft = scrollLeft - walk;
-            });
-
-            // Touch support
-            slider.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].pageX;
-                scrollLeft = slider.scrollLeft;
-            });
-
-            slider.addEventListener('touchmove', (e) => {
-                const walk = (e.touches[0].pageX - startX) * 2;
-                slider.scrollLeft = scrollLeft - walk;
-            });
-        }    </script>
-    <script>
         fetch("https://anandashankar.sidpz.com/home/admin/api/production/")
-            .then(res => res.json())
+            .then(response => response.json())
             .then(data => {
 
-                // Group by production_type
+                // Group productions by production type
                 const grouped = data.reduce((acc, item) => {
                     if (!acc[item.production_type]) {
                         acc[item.production_type] = [];
@@ -133,48 +291,82 @@
                 const container = document.getElementById("productionsContainer");
                 container.innerHTML = "";
 
-                Object.entries(grouped).forEach(([type, productions]) => {
+                Object.entries(grouped).forEach(([type, productions], index) => {
 
                     const section = document.createElement("div");
-                    section.className = "production";
+
+                    // Unique swiper class
+                    const swiperClass = `productionSwiper${index}`;
 
                     section.innerHTML = `
-        <h3 class="sub-headings">${type}</h3>
+                <h3 class="sub-headings">${type}</h3>
 
-        <div class="productions-grid">
-          ${productions.map(item => `
-            <a href="production.html?id=${item.id}" class="production-card">
-                <div class="production-img">
+<div class="swiper-wrapper-container">
 
-                    <img src="./assets/square-border.png"
-                         class="img-frame"
-                         alt="">
+    <div class="swiper ${swiperClass}">
+        <div class="swiper-wrapper">
+            ${productions.map(item => `
+                <div class="swiper-slide">
+                    <a href="production.html?id=${item.id}" class="production-card">
+                        <div class="production-img">
+                            <img src="./assets/square-border.png" class="img-frame" alt="">
+                            <img src="${item.cover_image}" class="inner-img" alt="${item.title}">
+                            <div class="view-more">View</div>
+                        </div>
 
-                    <!-- API Image -->
-                    <img src="${item.cover_image}"
-                         class="inner-img"
-                         alt="${item.title}">
-
-                    <div class="view-more">
-                        View
-                    </div>
-
+                        <h3>${item.title} ${item.production_year}</h3>
+                    </a>
                 </div>
-
-                <h3>${item.title} ${item.production_year}</h3>
-            </a>
-          `).join("")}
+            `).join("")}
         </div>
-      `;
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+</div>
+            `;
 
                     container.appendChild(section);
+
+                    // Initialize Swiper AFTER HTML is added
+                    new Swiper(section.querySelector(`.${swiperClass}`), {
+
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        speed: 600,
+                        grabCursor: true,
+                        loop: productions.length > 4,
+
+                        navigation: {
+                            nextEl: section.querySelector(".swiper-button-next"),
+                            prevEl: section.querySelector(".swiper-button-prev")
+                        },
+
+                        breakpoints: {
+                            0: {
+                                slidesPerView: 1,
+                                spaceBetween: 20
+                            },
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 25
+                            },
+                            992: {
+                                slidesPerView: 4,
+                                spaceBetween: 30
+                            }
+                        }
+
+                    });
+
                 });
-                document.querySelectorAll(".productions-grid").forEach(enableDrag);
 
             })
-            .catch(console.error);
+            .catch(error => {
+                console.error("Error loading productions:", error);
+            });
     </script>
-
 </body>
 
 </html>
