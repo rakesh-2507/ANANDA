@@ -76,7 +76,6 @@
         <section class="proddetails-section">
             <div class="row align-items-center">
 
-                <!-- Left -->
                 <div class="col-lg-6 left-bull">
 
                     <span class="section-tag" id="productionYear"></span>
@@ -89,7 +88,6 @@
 
                 </div>
 
-                <!-- Right -->
                 <div class="col-lg-6 right-bull">
 
                     <div class="image-wrapper">
@@ -101,6 +99,10 @@
                 </div>
 
             </div>
+            <div class="gallery-track my-5" id="productionGallery">
+                Loading...
+            </div>
+
         </section>
     </div>
 
@@ -120,9 +122,6 @@
     <script>
 
         const track = document.querySelector('.gallery-track');
-
-        // Duplicate images once
-        track.innerHTML += track.innerHTML;
 
         let position = 0;
         let speed = 0.5;
@@ -149,7 +148,6 @@
             requestAnimationFrame(animateGallery);
         }
 
-        animateGallery();
 
 
         // HOVER PAUSE
@@ -248,25 +246,23 @@
     <script>
         // FULLSCREEN IMAGE VIEW
 
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const closeModal = document.querySelector('.close-modal');
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const closeModal = document.querySelector(".close-modal");
+        const downloadBtn = document.getElementById("downloadBtn");
 
-        document.querySelectorAll('.gallery-item').forEach(item => {
+        document.getElementById("productionGallery").addEventListener("click", (e) => {
+            const item = e.target.closest(".gallery-item");
+            if (!item) return;
 
-            item.addEventListener('click', function () {
+            const imgSrc = item.querySelector("img").src;
 
-                const imgSrc = this.querySelector('img').src;
+            modalImg.src = imgSrc;
+            downloadBtn.href = imgSrc;
 
-                modalImg.src = imgSrc;
-
-                modal.classList.add('active');
-
-                document.body.style.overflow = 'hidden';
-            });
-
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
         });
-
         // Close button
         closeModal.addEventListener('click', () => {
 
@@ -307,6 +303,7 @@
 
             const params = new URLSearchParams(window.location.search);
             const id = Number(params.get("id"));
+            const gallery = document.getElementById("productionGallery");
 
             fetch("https://anandashankar.sidpz.com/home/admin/api/production/")
                 .then(res => res.json())
@@ -336,6 +333,18 @@
 
                     document.getElementById("downloadBtn").href =
                         production.cover_image;
+
+                    gallery.innerHTML = production.images
+                        .map(img => `
+                                        <div class="gallery-item">
+                                            <img src="${img.image}" alt="${production.title}">
+                                        </div>
+                                    `)
+                        .join("");
+
+                    gallery.innerHTML += gallery.innerHTML;
+
+                    animateGallery();
                 })
                 .catch(err => console.error(err));
         });
